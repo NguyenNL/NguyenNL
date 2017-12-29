@@ -14,11 +14,11 @@
   export default {
     head () {
       return {
-        title: `profile + ${this.$route.params.profile}`
+        title: `profile + ${this.$route.params.id}`
       }
     },
     fetch ({store}) {
-      store.dispatch('getInfoMemberById', this.$route.params.profile)
+      store.dispatch('getInfoMemberById', this.$route.params.id)
     },
     computed: {
       infoMember () {

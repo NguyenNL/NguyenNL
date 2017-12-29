@@ -1,6 +1,6 @@
 <template>
   <div class="my-team-container">
-    <div class="info-member" v-for="(member, index) in info">
+    <div v-if="info" class="info-member" v-for="(member, index) in info">
         <div>{{index}} </div>
         <div>{{member.name}} </div>
         <div>{{member.email}} </div>
@@ -24,7 +24,8 @@
         this.info = this.$store.state.infoMyTeam
       },
       goTo: function (id) {
-        this.redirect('/profile', { params: id })
+        console.log('[member id]', id)
+        this.router.push({ path: `/profile/${id}` }) // -> /user/123
       }
     },
     data: function () {
